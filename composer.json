@@ -1,12 +1,13 @@
 {
     "name": "anran02/php-wechat",
     "description": "微信php后台微信公众号类库",
-    "version":"1.0.0"
+    "license":"Apache-2.0",
+    "version":"1.0.0",
     "type": "library",
     "authors": [
         {
-            "name": "warmjarlc",
-            "email": "johnliu@warmjar.com"
+            "name": "lcisu",
+            "email": "604721590@qq.com
         }
     ],
     "require": {}
