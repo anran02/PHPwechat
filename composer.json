@@ -1,0 +1,12 @@
+{
+    "name": "anran02/php-wechat",
+    "description": "微信php后台微信公众号类库",
+    "type": "library",
+    "authors": [
+        {
+            "name": "warmjarlc",
+            "email": "johnliu@warmjar.com"
+        }
+    ],
+    "require": {}
+}
