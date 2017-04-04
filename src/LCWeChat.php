@@ -1,6 +1,6 @@
 <?php
 namespace anran02;
-class WeChat
+class LCWeChat
 {
     public $version = '1.0.2';
     

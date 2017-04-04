@@ -1,12 +1,21 @@
 <?php
-require '../WeChat.php';
-use anran02\WeChat;
+require '../LCWeChat.php';
+use anran02\LCWeChat;
 if(!is_weixin())
 {
     echo '请在微信浏览器访问';exit;
 }
+//公众号信息配置
+//应用id
+$appi = '';
+//应用秘钥
+$appsecret = '';
+//商户id  （支付用）
+$mch_id = '';
+//回调地址，注意要在微信后台配置的回调域名下
+$redirect_url = '';
 //初始化sdk
-$WeChat = new WeChat('wx5a7bc0d2c192485f', '9c3dd0bc9f4afd0afbfb1314a2e899fc', '1229675602', 'http://www.warmjar.com/demo/demo.php', null, null, null);
+$WeChat = new LCWeChat($appi, $appsecret,$mch_id, $redirect_url, null, null, null);
 
 
 
