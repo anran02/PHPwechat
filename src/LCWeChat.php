@@ -194,7 +194,7 @@ class LCWeChat
         $access_token_url = $this->create_url($url, $param);
         $data = $this->http_get($access_token_url);
         $this->userInfo->openid = $data['openid'];
-        $this->userInfo->unionid = $data['unionid'];
+        $this->userInfo->unionid = isset($data['unionid'])?$data['unionid']:'';
         $this->auth_access_token = $data['access_token'];
         return $this->return_data($data);
     }
@@ -708,7 +708,7 @@ class LCWeChat
         return '{' . $json . '}'; //Return associative JSON
     }
     
-    public function getCacheAccessToken($type = 1){
+    public function getCacheAccessToken($typeT = 1){
     
     
         $type = $this->access_token_type;
@@ -719,11 +719,14 @@ class LCWeChat
     
         }elseif($type =='file'){
             //access_token
-            if($type == 1){
+            if($typeT == 1){
                 $file = dirname(__FILE__).'/access_token.json';
             }
             else{
                 $file = dirname(__FILE__).'/jsticket_token.json';
+            }
+            if(!file_exists($file)){
+                return false;
             }
             $dataToken = json_decode(file_get_contents($file),true);
             $token = $dataToken[$this->appid];
