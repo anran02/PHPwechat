@@ -1,5 +1,5 @@
 <?php
-namespace anran02;
+namespace anran02\phpwechat;
 class LCWeChat
 {
     public $version = '1.0.2';
