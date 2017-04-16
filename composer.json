@@ -2,7 +2,7 @@
     "name": "anran02/php-wechat",
     "description": "微信php后台微信公众号类库",
     "license":"Apache-2.0",
-    "version":"1.0.0",
+    "version":"1.0.1",
     "type": "library",
     "authors": [
         {
