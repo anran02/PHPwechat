@@ -774,11 +774,13 @@ class LCWeChat
             }else{
                 $file = dirname(__FILE__).'/jsticket_token.json';
             }
-            
-            $filedata = file_get_contents($file);
-            if($filedata)
-            {
-                $dataToken = json_decode($filedata,true);
+
+            if(file_exists($file)){
+                $filedata = file_get_contents($file);
+                if($filedata)
+                {
+                    $dataToken = json_decode($filedata,true);
+                }
             }
             $dataToken[$this->appid] = $data;
             $accessTokenData = json_encode($dataToken , true);
