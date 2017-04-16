@@ -10,5 +10,10 @@
             "email": "604721590@qq.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "anran02\\php-wechat": "src/"
+        }
+    }
 }
