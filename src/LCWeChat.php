@@ -76,18 +76,18 @@ class LCWeChat
      * @param unknown $pay_api_secret 支付秘钥
      */
     
-    public function __construct($appid,$appsecret,$mch_id,$redirect_url,$access_token_type,$pay_notify_url,$pay_api_secret){
-    
-        $appid?($this->appid = $appid):'';
-        $appsecret?($this->appsecret = $appsecret):'';
+    public function __construct($config=[],$redirect_url,$pay_notify_url){
+        //$wxConfig = config('weixin');
+//         $wxConfig = array_merge($wxConfig,$config);
+        $this->appid = $config['appid'];
+        $this->appsecret = $config['appsecret'];
         $redirect_url?($this->redirect_uri = $redirect_url):'';
     
-        $this->access_token_type = $access_token_type ? $access_token_type : 'file';
+        $this->access_token_type = $config['access_token_type'];
         $this->access_token = $this->get_access_token();
-    
-        $mch_id?($this->mch_id = $mch_id):'';
+        $this->mch_id = $config['mch_id'];
         $pay_notify_url?($this->pay_notyfy_url = $pay_notify_url):'';
-        $pay_api_secret?($this->pay_api_secret = $pay_api_secret):'';
+        $this->pay_api_secret = $config['pay_api_secret'];
         
         $this->userInfo = new WeChatUserInfo();
     
