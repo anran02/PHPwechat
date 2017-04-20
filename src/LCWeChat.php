@@ -299,7 +299,7 @@ class LCWeChat
             $data = $this->return_data($data);
             if ($data){
                 $ticket = $data['ticket'];
-                $data['deadline'] = time() + 7100;
+                $data['time_out'] = time() + 7100;
                 $this->setCacheAccessToken($data,'2');    
                 return $ticket;
             }else {
