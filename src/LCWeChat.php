@@ -285,7 +285,7 @@ class LCWeChat
     
         // 先从缓存中取
         $data = $this->getCacheAccessToken(2);
-        if ($data && $data['deadline'] > time()){
+        if ($data){
             $ticket = $data['ticket'];
             return $ticket;
         }else {
@@ -753,9 +753,9 @@ class LCWeChat
      * $param int $type 类型  1：access_token 2:jsticket
      * @return boolean
      */
-    public function setCacheAccessToken($data,$type = '1'){
+    public function setCacheAccessToken($data,$typeT = '1'){
     
-        if($type =='1')
+        if($typeT =='1')
         {
             $data['expires_in'] = $data['expires_in'] - 100;
             $data['time_out'] = time() + $data['expires_in'];
