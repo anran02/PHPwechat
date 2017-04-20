@@ -769,7 +769,7 @@ class LCWeChat
             
         }elseif($type == 'file'){
             //默认用文件
-            if($type == '1'){
+            if($typeT == '1'){
                 $file = dirname(__FILE__).'/access_token.json';
             }else{
                 $file = dirname(__FILE__).'/jsticket_token.json';
