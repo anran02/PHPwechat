@@ -193,6 +193,9 @@ class LCWeChat
     
         $access_token_url = $this->create_url($url, $param);
         $data = $this->http_get($access_token_url);
+        if($data['errcode']){
+            return false;
+        }
         $this->userInfo->openid = $data['openid'];
         $this->userInfo->unionid = isset($data['unionid'])?$data['unionid']:'';
         $this->auth_access_token = $data['access_token'];
@@ -418,7 +421,10 @@ class LCWeChat
      */
     public function get_auth_user($code,$lang = 'zh_CN'){
     
-        $this->get_auth_access_token($code);
+        $re = $this->get_auth_access_token($code);
+        if($re ===false){
+            return false;
+        }
         $url = self::API_URI . self::AUTH_USER_URI;
         $param['access_token'] = $this->auth_access_token;
         $param['openid'] = $this->userInfo->openid;
