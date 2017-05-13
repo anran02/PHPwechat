@@ -193,7 +193,7 @@ class LCWeChat
     
         $access_token_url = $this->create_url($url, $param);
         $data = $this->http_get($access_token_url);
-        if($data['errcode']){
+        if(isset($data['errcode'])){
             return false;
         }
         $this->userInfo->openid = $data['openid'];
