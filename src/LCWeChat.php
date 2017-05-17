@@ -735,13 +735,18 @@ class LCWeChat
                 return false;
             }
             $dataToken = json_decode(file_get_contents($file),true);
-            $token = $dataToken[$this->appid];
-            if($token['time_out']>time())
-            {
-                return $token;
+            if(isset($dataToken[$this->appid])){
+                $token = $dataToken[$this->appid];
+                if($token['time_out']>time())
+                {
+                    return $token;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
+            else{
                 return false;
             }
         }
